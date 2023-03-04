@@ -3,6 +3,8 @@ class EventsController < ApplicationController
     
     def index
         @events = Event.all
+        @user_signed_in = user_signed_in?
+        @current_user = current_user
     end
 
     def show
@@ -11,12 +13,12 @@ class EventsController < ApplicationController
 
     def new
         @user = current_user
-        @event = @user.build_created_event
+        @event = @user.created_events.build
     end
 
     def create
         @user = current_user
-        @event = @user.build_created_event(event_params)
+        @event = @user.created_events.build(event_params)
         if @event.save
             redirect_to events_path
         else

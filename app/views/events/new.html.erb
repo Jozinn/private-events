@@ -1,5 +1,5 @@
 <h1>Create an event</h1>
-<%= form_with model: @event do |form| %>
+<%= form_with model: @event, method: "post" do |form| %>
     <%= form.label :name, 'Event name:' %><br>
     <%= form.text_field :name %><br>
     <%= form.label :location, 'Location:' %><br>
