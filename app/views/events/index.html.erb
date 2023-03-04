@@ -1,5 +1,11 @@
 <h1>See the events happening soon</h1>
-<% @events.each do |event| %>
+<% @events.upcoming.each do |event| %>
+    <p> <strong> <%= event.name %> </strong> | at: <%= event.date %> </p>
+    <%= link_to 'More info', event_path(event.id) %>
+    <hr>
+<% end %>
+<h2>Events that happend recently</h2>
+<% @events.past.each do |event| %>
     <p> <strong> <%= event.name %> </strong> | at: <%= event.date %> </p>
     <%= link_to 'More info', event_path(event.id) %>
     <hr>

@@ -1,6 +1,0 @@
-<h1>Events created by you</h1>
-<% @created_events.each do |event| %>
-    <p> <strong> <%= event.name %> </strong> | at: <%= event.date %> </p>
-    <%= link_to 'More info', event_path(event.id) %>
-    <hr>
-<% end %>

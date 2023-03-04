@@ -1,0 +1,19 @@
+<h1>Events created by you</h1>
+<% @created_events.each do |event| %>
+    <p> <strong> <%= event.name %> </strong> | at: <%= event.date %> </p>
+    <%= link_to 'More info', event_path(event.id) %>
+    <hr>
+<% end %>
+<%= link_to "New event", new_event_path %>
+<h3>Upcoming evevnts</h3>
+<% @attended_events.upcoming.each do |event| %>
+    <p> <strong> <%= event.name %> </strong> | at: <%= event.date %> </p>
+    <%= link_to 'More info', event_path(event.id) %>
+    <hr>
+<% end %>
+<h3>Passed events</h3>
+<% @attended_events.past.each do |event| %>
+    <p> <strong> <%= event.name %> </strong> | at: <%= event.date %> </p>
+    <%= link_to 'More info', event_path(event.id) %>
+    <hr>
+<% end %>
